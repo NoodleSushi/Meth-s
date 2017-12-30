@@ -30,15 +30,19 @@ Methos.SetInput= function(bool)
   Methos.key.bool = bool
 end
 Methos.Input = function(arg)
-  local bti = function(A) return A and 1 or 0 end
-  local itb = function(A) if A > 0 then return true else return false end end
+  local bool = Methos.key.bool
   local lam = Methos.key[arg]
   local val = lam()
-  local bool = Methos.key.bool
-  if bool == true then
-      if type(val) == "boolean" then return val else return itb(val) end
-  else
-      if type(val) == "number"  then return val else return bti(val) end
+  if type(bool) == "boolean" then
+    local bti = function(A) return A and 1 or 0 end
+    local itb = function(A) if A > 0 then return true else return false end end
+    if bool == true then
+        if type(val) == "boolean" then return val else return itb(val) end
+    else
+        if type(val) == "number"  then return val else return bti(val) end
+    end
+  elseif bool == nil then
+    return val
   end
 end
 
