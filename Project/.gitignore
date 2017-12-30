@@ -1,2 +1,6 @@
 
-[^.]*
+ENTITIES/[^.]*
+MODULES/[^.]*
+ROOMS/[^.]*
+!ENTITIES/entity_test.lua
+!ROOMS/room_test.lua

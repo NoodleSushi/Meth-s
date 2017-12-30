@@ -1,0 +1,3 @@
+function Methos.settings()
+
+end
