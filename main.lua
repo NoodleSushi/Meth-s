@@ -2,17 +2,17 @@ require "lua_extend"
 require "METHOS/INIT"
 
 function love.load()
-
+  Methos.Load()
 end
 
 function love.update(dt)
-
+  Methos.Update(dt)
   Methos.keypressedtxt = {}
   Methos.keyreleasedtxt = {}
 end
 
 function love.draw()
-
+  Methos.Draw()
 end
 
 ------------------------------------------------------------------------------
