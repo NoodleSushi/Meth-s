@@ -12,38 +12,18 @@ for i, k in ipairs(files) do
   _G[fin] = require ("Project/MODULES/"..name)
 end
 
+--INITIATE METHOS
 Methos = {}
-
-Methos.keypressedtxt = {}
-Methos.keypressed = function(txt)
-  return Methos.keypressedtxt[txt] ~= nil
-end
-
-Methos.keyreleasedtxt = {}
-Methos.keyreleased = function(txt)
-  return Methos.keyreleasedtxt[txt] ~= nil
-end
-
-Methos.key = table.Add(require("Project/keymaps"))
-Methos.key.bool = true
-Methos.SetInput= function(bool)
-  Methos.key.bool = bool
-end
-Methos.Input = function(arg)
-  local bool = Methos.key.bool
-  local lam = Methos.key[arg]
-  local val = lam()
-  if type(bool) == "boolean" then
-    local bti = function(A) return A and 1 or 0 end
-    local itb = function(A) if A > 0 then return true else return false end end
-    if bool == true then
-        if type(val) == "boolean" then return val else return itb(val) end
-    else
-        if type(val) == "number"  then return val else return bti(val) end
-    end
-  elseif bool == nil then
-    return val
-  end
-end
-
+__set = {}
 require "Project/settings"
+Methos.settings(__set)
+
+--OPTIONAL METHOS MODULES
+require "METHOS/KEY"
+require "METHOS/PAD"
+require "METHOS/INPUT"
+
+--COMPULSORY METHOS MODULES
+require "METHOS/LUD"
+require "METHOS/SYSTM"
+require "METHOS/INSTNC"
