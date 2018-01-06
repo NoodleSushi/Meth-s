@@ -6,9 +6,12 @@ function love.load()
 end
 
 function love.update(dt)
+  --love.timer.sleep(dt)
   Methos.Update(dt)
-  Methos.keypressedtxt = {}
-  Methos.keyreleasedtxt = {}
+  Methos.Key.pressedtxt = {}
+  Methos.Key.releasedtxt = {}
+  Methos.Pad.pressed = false
+  Methos.Pad.released = {}
 end
 
 function love.draw()
@@ -20,9 +23,15 @@ end
 ------------------------------------------------------------------------------
 
 function love.keypressed(key)
-  Methos.keypressedtxt[key] = 0
+  Methos.Key.pressedtxt[key] = 0
 end
 
 function love.keyreleased(key)
-  Methos.keyreleasedtxt[key] = 0
+  Methos.Key.releasedtxt[key] = 0
+end
+function love.gamepadpressed( joystick, button )
+   Methos.Pad.pressed = true
+end
+function love.gamepadreleased( joystick, button )
+   Methos.Pad.released[button] = joystick
 end
