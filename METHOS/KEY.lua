@@ -1,10 +1,10 @@
 Methos.Key = {}
 Methos.Key.pressedtxt = {}
-Methos.Key.Pressed = function(txt)
+function Methos.Key.Pressed(txt)
   return Methos.Key.pressedtxt[txt] ~= nil
 end
 
 Methos.Key.releasedtxt = {}
-Methos.Key.Released = function(txt)
+function Methos.Key.Released(txt)
   return Methos.Key.releasedtxt[txt] ~= nil
 end

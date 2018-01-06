@@ -1,10 +1,10 @@
 Methos.Input = {}
 Methos.Input.data = table.Add(require("Project/inputmap"))
 Methos.Input.bool = nil
-Methos.Input.Set= function(bool)
+function Methos.Input.Set(bool)
   Methos.Input.bool = bool
 end
-Methos.Input.Return = function(arg)
+function Methos.Input.Return(arg)
   local bool = Methos.Input.bool
   local lam = Methos.Input.data[arg]
   local val = lam()
