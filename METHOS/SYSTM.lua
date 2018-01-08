@@ -17,7 +17,6 @@ function Methos.System.entities_load()
     if Methos.cache.data.entity[k[1]] == nil then Methos.cache.data.entity[k[1]] = require (Methos.Directories.Entity[k[1]]) end
     local data = {}
     setmetatable(data, { __index = Methos.cache.data.entity[k[1]]})
-    table.print(k)
     data:load(k[2])
     table.insert(Methos.Entities,data)
   end
@@ -30,5 +29,8 @@ function Methos.System.entities_create()
     end
     Methos.cache.data.entity_create = {}
   end
-  print("there are "..(#Methos.Entities).." Entities\nFPS: "..(math.floor(1/love.timer.getDelta())))
+end
+
+function Methos.System.PolygonCount()
+  
 end

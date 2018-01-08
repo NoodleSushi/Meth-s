@@ -128,6 +128,15 @@ math.Anglelerp = function(a,b,c)
   return a + shortAngleDist(a,b)*c;
 end
 
+
+function math.maxabs(...)
+  local tab = {0,...}
+  local high= 1
+  for i, k in ipairs(tab) do
+    if math.abs(k) > math.abs(tab[high]) then high = i end
+  end
+  if high == nil then return 0 else return tab[high] end
+end
 --COLOR Functions
 function rgbToHsv(...)
   local tab = {...}
