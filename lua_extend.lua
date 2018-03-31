@@ -103,9 +103,13 @@ table.Add = function(...)
 end
 
 --Picks random index in a table
-table.Random = function(tab)
+table.Random = function(...)
+  local tab
+  local b = {...}
+  if #b == 1 then tab = b[1] else tab = b end
   return tab[math.random(1,#tab)]
 end
+
 
 --Reverses index labeled keys
 table.reverse = function(t)
@@ -127,6 +131,7 @@ math.Anglelerp = function(a,b,c)
   end
   return a + shortAngleDist(a,b)*c;
 end
+function math.clamp(low, n, high) return math.min(math.max(n, low), high) end
 
 
 function math.maxabs(...)
@@ -137,6 +142,8 @@ function math.maxabs(...)
   end
   if high == nil then return 0 else return tab[high] end
 end
+
+function math.round(n, deci) deci = 10^(deci or 0) return math.floor(n*deci+.5)/deci end
 --COLOR Functions
 function rgbToHsv(...)
   local tab = {...}
@@ -185,4 +192,10 @@ function hsvToRgb(...)
   end
 
   return {r * 255, g * 255, b * 255, a * 255}
+end
+function hextoRgb(hex)
+  hex=hex:sub(2,#hex)
+  _,_,a,r,g,b = hex:find('(%x%x)(%x%x)(%x%x)(%x%x)')
+  color = {tonumber(r,16),tonumber(g,16),tonumber(b,16)}
+  return color
 end

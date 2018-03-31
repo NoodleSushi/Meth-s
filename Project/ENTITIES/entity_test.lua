@@ -13,9 +13,9 @@ function entity:update(dt)
   local Yup = math.maxabs(Methos.Pad.Axis("lefty"),Methos.Input.Return("down")-Methos.Input.Return("up"))
   self.pos = self.pos+Vec2.new(Xup,Yup)*dt*500
   if math.abs(Xup) > 0 or math.abs(Yup) > 0 then
-    self.dir = Vec2.new(0,0):toAngle(Vec2.new(Xup,Yup)*10)
+    self.dir = Vec2.new(0,0):toAngle(Vec2.new(Xup,Yup))
   end
-  self.dird = math.Anglelerp(self.dird,self.dir,0.1)
+  self.dird = math.Anglelerp(self.dird,self.dir,1-0.0000001^dt)
 end
 
 function entity:draw()

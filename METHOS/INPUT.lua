@@ -1,10 +1,16 @@
 Methos.Input = {}
-Methos.Input.data = table.Add(require("Project/inputmap"))
-Methos.Input.bool = nil
+Methos.Input.data = require("Project/inputmap") or {}
+Methos.Input.bool = true
 function Methos.Input.Set(bool)
+  --COMP REV START
+  if type(bool) ~= "boolean" then error("NOT A BOOLEAN ARGUMENT") end
+  --COMP REV END
   Methos.Input.bool = bool
 end
 function Methos.Input.Return(arg)
+  --COMP REV START
+  --if Methos.Input.data[arg] ~= "string" then error("NOT A STRING ARGUMENT") end
+  --COMP REV END
   local bool = Methos.Input.bool
   local lam = Methos.Input.data[arg]
   local val = lam()

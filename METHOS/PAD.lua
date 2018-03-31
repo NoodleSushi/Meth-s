@@ -22,6 +22,7 @@ function Methos.Pad.Down(button)
   return Methos.Pad.JS[Methos.Pad.IN]:isGamepadDown(button)
 end
 function Methos.Pad.Press(button)
+  if Methos.Pad.JS[Methos.Pad.IN] == nil then Methos.Pad.Refresh() end
   return Methos.Pad.pressed and Methos.Pad.JS[Methos.Pad.IN]:isGamepadDown(button)
 end
 function Methos.Pad.Release(button)

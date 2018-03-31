@@ -6,6 +6,7 @@ function Methos.cache:reset()
     entity_create = {}
   }
 end
+Methos.cache.custom = {}
 --INITIATE DIRECTORIES
 Methos.Directories = {
   Entity = {},
