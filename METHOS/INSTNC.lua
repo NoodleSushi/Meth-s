@@ -13,9 +13,7 @@ function Methos.Entity.Create(object,arg)
     self.DSTR = true
   end
   function data:persistant(bool)
-    if bool ~= nil then
-      self.PTNT = bool
-    else self.PTNT = not bool end
+    if bool ~= nil then self.PTNT = bool else self.PTNT = not self.PTNT end
   end
   data:load(arg)
   table.insert(Methos.cache.data.entity_create,data)
