@@ -2,11 +2,18 @@
 Methos.Pad = {}
 Methos.Pad.JS = love.joystick.getJoysticks()
 Methos.Pad.IN = 0
+Methos.Pad.COUNT = 0
 function Methos.Pad.Refresh()
-  Methos.Pad.JS = love.joystick.getJoysticks()
+  if Methos.Pad.COUNT < love.joystick.getJoystickCount( ) then
+    Methos.Pad.JS = love.joystick.getJoysticks()
+    Methos.Pad.COUNT = love.joystick.getJoystickCount( )
+  end
 end
 function Methos.Pad.setIndex(index)
   Methos.Pad.IN = index
+end
+function Methos.Pad.getIndex(index)
+  return Methos.Pad.IN
 end
 function Methos.Pad.Vibrate(...)
   return Methos.Pad.JS[Methos.Pad.IN]:setVibration(...)

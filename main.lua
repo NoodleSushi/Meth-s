@@ -8,10 +8,6 @@ end
 function love.update(dt)
   --love.timer.sleep(dt)
   Methos.Update(dt)
-  Methos.Key.pressedtxt = {}
-  Methos.Key.releasedtxt = {}
-  Methos.Pad.pressed = false
-  Methos.Pad.released = {}
 end
 
 function love.draw()

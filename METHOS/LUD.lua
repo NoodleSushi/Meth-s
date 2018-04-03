@@ -39,6 +39,10 @@ function Methos.Load()
   Methos.cache:reset()
 
   Methos.Update = function(dt)
+    Methos.Key.pressedtxt = {}
+    Methos.Key.releasedtxt = {}
+    Methos.Pad.pressed = false
+    Methos.Pad.released = {}
   end
   Methos.Draw = function() end
   if Methos.room.data.load ~= nil then
@@ -52,6 +56,10 @@ function Methos.Load()
   if Methos.room.data.update ~= nil then
     Methos.Update=function(dt)
       Methos.room.data:update(dt)
+      Methos.Key.pressedtxt = {}
+      Methos.Key.releasedtxt = {}
+      Methos.Pad.pressed = false
+      Methos.Pad.released = {}
     end
   end
 end
